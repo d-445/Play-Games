@@ -1,0 +1,15 @@
+{
+  "name": "PlayStuff",
+  "version": "1.0.0",
+  "description": "PlayStuff",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve"
+  },
+  "keywords": ["Games", "PlayStuff", "unblocked", "Fun"],
+  "author": "d-445",
+  "license": "???",
+  "devDependencies": {
+    "serve": "11.2.0"
+  }
+}
