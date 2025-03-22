@@ -8,4 +8,3 @@
 ### made with`codesanbox.io`.
 
 
-theme:darkly
