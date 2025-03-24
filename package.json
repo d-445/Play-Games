@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "PlayStuff",
   "main": "index.html",
+  "url": "https://raw.githubusercontent.com/marko-js/branding/master/marko-logo-small.png",
   "scripts": {
     "start": "serve"
   },
