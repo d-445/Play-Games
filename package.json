@@ -2,7 +2,7 @@
   "name": "PlayStuff",
   "version": "1.0.0",
   "description": "PlayStuff",
-  "main": "home.html",
+  "main": "index.html",
   "scripts": {
     "start": "serve"
   },
