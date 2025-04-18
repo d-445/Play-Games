@@ -1,9 +1,50 @@
-<a
-  href="javascript:history.back()
-"
-  ><-Back</a
->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Dash Lite</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        iframe {
+            width: 75%;
+            height: 500px;
+            border: none;
+        }
+        button {
+            width: 75%;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="gameFrame" src="https://geometrydashlite.io"></iframe>
+    <button id="fullscreenButton">Fullscreen</button>
+    <p>Geometry Dash is a rhythm-based platformer game where players navigate a square icon through various levels filled with obstacles, all set to music.</p>
 
-<iframe src="https://geometrydashlite.io" width="100%" height="100%"></iframe>
-<title>Geometry Dash lite</title>
-<style src="style.css"></style>
+    <script>
+        const fullscreenButton = document.getElementById('fullscreenButton');
+        const gameFrame = document.getElementById('gameFrame');
+
+        fullscreenButton.addEventListener('click', () => {
+            if (gameFrame.requestFullscreen) {
+                gameFrame.requestFullscreen();
+            } else if (gameFrame.mozRequestFullScreen) { // Firefox
+                gameFrame.mozRequestFullScreen();
+            } else if (gameFrame.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                gameFrame.webkitRequestFullscreen();
+            } else if (gameFrame.msRequestFullscreen) { // IE/Edge
+                gameFrame.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
