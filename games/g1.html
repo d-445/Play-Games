@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geometry Dash Lite</title>
+    <title>Iframe Fullscreen</title>
     <style>
         body {
             background-color: #006400; /* Dark Green */
@@ -13,8 +13,9 @@
             justify-content: center; /* Center content vertically */
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 20px; /* Add padding to prevent content touching edges */
             box-sizing: border-box;
+            position: relative; /* Needed for absolute positioning of the back button */
         }
         .iframe-container {
             width: 75%;
@@ -22,6 +23,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 50px; /* Add margin to push iframe down from back button */
         }
         iframe {
             width: 100%; /* Take full width of the container */
@@ -30,7 +32,6 @@
             display: block; /* Remove extra space below */
         }
         button {
-            margin-top: 15px; /* Space between iframe and button */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -39,13 +40,34 @@
             border: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            text-decoration: none; /* Remove underline if wrapped in <a> */
+            display: inline-block; /* Proper button display */
         }
         button:hover {
             background-color: #003300; /* Even darker on hover */
         }
+        #fullscreenButton {
+             margin-top: 15px; /* Space between iframe and button */
+        }
+        #backButtonContainer {
+            position: absolute; /* Position relative to body */
+            top: 20px; /* Adjust spacing from top */
+            left: 20px; /* Adjust spacing from left */
+            z-index: 10; /* Ensure it's above other content if needed */
+        }
+        #backButtonContainer a {
+            text-decoration: none; /* Remove underline from link */
+        }
+
     </style>
 </head>
 <body>
+
+<div id="backButtonContainer">
+    <a href="/index.html">
+        <button id="backButton">Back</button>
+    </a>
+</div>
 
 <div class="iframe-container">
     <iframe
@@ -60,6 +82,7 @@
 <script>
     const iframe = document.getElementById('contentFrame');
     const fullscreenButton = document.getElementById('fullscreenButton');
+    // No JS needed for the back button as it's a simple link
 
     fullscreenButton.addEventListener('click', () => {
         // Check if fullscreen is supported and request it
