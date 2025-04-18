@@ -63,11 +63,15 @@
 </head>
 <body>
 
-<div id="backButtonContainer">
-    <a href="/main/index.html">
-        <button id="backButton">Back</button>
-    </a>
-</div>
+<a id="homeLink">
+    <button id="backButton">Back</button>
+</a>
+
+<script>
+    const base = location.hostname === "d-445.github.io" ? "/Play-Games" : "";
+    document.getElementById("homeLink").href = `${base}/main/index.html`;
+</script>
+
 
 <div class="iframe-container">
     <iframe
