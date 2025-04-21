@@ -61,7 +61,11 @@
   <div class="container">
     <h1>404</h1>
     <p>Sorry, the page you're looking for has flown away.</p>
-    <a href="/">🏠 Home</a>
+    <a id="homeLink"href="/">🏠 Home</a>
+    <script>
+    const base = location.hostname === "d-445.github.io" ? "/Play-Games" : "";
+    document.getElementById("homeLink").href = `${base}/index.html`;
+</script>
     <a href="javascript:history.back()">🔙 Back</a>
     <img src="resource/fly.png" alt="Flying away">
   </div>
