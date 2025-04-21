@@ -4,118 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Play</title>
-  <link rel="stylesheet" href="resource/style.css" />
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f2f5;
-      padding: 40px;
       text-align: center;
     }
 
     h1 {
-      margin-top: 0;
-      font-size: 2.5rem;
-      color: #333;
+      color: #00bfff; /* Blue accent */
+      padding: 20px 0;
     }
 
-    .back-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      color: #333;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.2s ease-in-out;
-    }
-
-    .back-button:hover {
-      background-color: #f0f0f0;
-      border-color: #999;
-      transform: translateY(-1px);
-    }
-
-    .game-gallery {
+    .game-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin-top: 40px;
+      padding: 20px;
     }
 
-    .game-gallery a img {
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease-in-out;
+    a img {
+      border: 3px solid #1e90ff;
+      border-radius: 10px;
+      transition: transform 0.2s, border-color 0.3s;
     }
 
-    .game-gallery a img:hover {
+    a img:hover {
       transform: scale(1.05);
+      border-color: #00bfff;
     }
   </style>
 </head>
 <body>
-
-  <button class="back-button" onclick="history.back()">← Back</button>
-
   <h1>Play</h1>
 
-  <div class="game-gallery">
+  <div class="game-container">
     <a href="games/g1.html">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/en/4/4d/Logo_of_Geometry_Dash.svg"
-        alt="geometry dash"
-        style="width: 160px; height: 160px"
-      />
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Logo_of_Geometry_Dash.svg" alt="Geometry Dash Lite" style="width: 160px; height: 160px" />
     </a>
 
     <a href="games/g2.html">
-      <img
-        src="https://images.crazygames.com/space-waves_16x9/20240723090521/space-waves_16x9-cover?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=461"
-        alt="space waves"
-        style="width: 260px; height: 160px"
-      />
+      <img src="https://images.crazygames.com/space-waves_16x9/20240723090521/space-waves_16x9-cover?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=461" alt="Space Waves" style="width: 260px; height: 160px" />
     </a>
 
     <a href="games/g3.html">
-      <img
-        src="https://minecraft.wiki/images/Grass_Block_JE7_BE6.png?424c1&format=original"
-        alt="eaglercraft"
-        style="width: 160px; height: 160px"
-      />
+      <img src="https://minecraft.wiki/images/Grass_Block_JE7_BE6.png?424c1&format=original" alt="Eaglercraft (Minecraft)" style="width: 160px; height: 160px" />
     </a>
 
     <a href="games/g4.html">
-      <img
-        src="https://images.crazygames.com/games/bloxdhop-io/cover_16x9-1709115453824.png?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=461"
-        alt="bloxdhop io"
-        style="width: 260px; height: 160px"
-      />
+      <img src="https://images.crazygames.com/games/bloxdhop-io/cover_16x9-1709115453824.png?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=461" alt="BloxdHop.io" style="width: 260px; height: 160px" />
     </a>
 
     <a href="games/g5.html">
-      <img
-        src="https://images.crazygames.com/polytrack_16x9/20240814074159/polytrack_16x9-cover?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=489"
-        alt="polytrack"
-        style="width: 260px; height: 160px"
-      />
+      <img src="https://images.crazygames.com/polytrack_16x9/20240814074159/polytrack_16x9-cover?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=489" alt="PolyTrack" style="width: 260px; height: 160px" />
     </a>
 
     <a href="games/g6.html">
-      <img
-        src="https://s3.amazonaws.com/gameopedia_covers/covers/589048/43ecc7ec8b5029bd1e6dd86521a3178f.jpg"
-        alt="get over it"
-        style="width: 160px; height: 160px"
-      />
+      <img src="https://s3.amazonaws.com/gameopedia_covers/covers/589048/43ecc7ec8b5029bd1e6dd86521a3178f.jpg" alt="Getting Over It" style="width: 160px; height: 160px" />
     </a>
   </div>
-
 </body>
 </html>
