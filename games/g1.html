@@ -1,55 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Geometry Dash Lite</title>
-  <link rel="stylesheet" href="resource/style.css" />
+  <link rel="stylesheet" href="../resource/style.css" />
+  <style>
+    /* Additional styling specific to g1.html */
+    body {
+      background-color: #121212; /* Dark background from style.css */
+      color: #e0e0e0; /* Lighter text color for contrast */
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00bfff; /* Neon blue text color */
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .iframe-container {
+      width: 80%;
+      max-width: 900px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #00bfff; /* Neon border color */
+      box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3); /* Soft glow effect */
+    }
+
+    iframe {
+      width: 100%;
+      height: 70vh;
+      border: none;
+      display: block;
+    }
+
+    #fullscreenButton {
+      padding: 12px 30px;
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    #fullscreenButton:hover {
+      background-color: #009acd; /* Slightly darker blue */
+    }
+
+    #backButtonContainer {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    #backButtonContainer a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #00bfff;
+      background-color: transparent;
+      padding: 10px;
+      border: 2px solid #00bfff;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    #backButtonContainer a:hover {
+      background-color: #00bfff;
+      color: black;
+    }
+  </style>
 </head>
 <body>
 
-<a id="homeLink">
-  <button id="backButton">Back</button>
-</a>
+<!-- Back Button -->
+<div id="backButtonContainer">
+  <a href="../index.html">Back</a>
+</div>
 
-<script>
-  const base = location.hostname === "d-445.github.io" ? "/Play-Games" : "";
-  document.getElementById("homeLink").href = `${base}/index.html`;
-</script>
+<h1>Geometry Dash Lite</h1>
 
 <div class="iframe-container">
-  <iframe
-    id="contentFrame"
-    src="https://geometrydashlite.io"
-    title="Content Frame"
-    allowfullscreen>
-  </iframe>
+  <iframe src="https://geometrydashlite.io" allowfullscreen title="Geometry Dash Lite"></iframe>
   <button id="fullscreenButton">Fullscreen</button>
 </div>
 
 <script>
-  const iframe = document.getElementById('contentFrame');
+  const iframe = document.querySelector('iframe');
   const fullscreenButton = document.getElementById('fullscreenButton');
 
   fullscreenButton.addEventListener('click', () => {
-    if (iframe.requestFullscreen) {
-      iframe.requestFullscreen()
-        .catch(err => console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`));
-    } else if (iframe.mozRequestFullScreen) {
-      iframe.mozRequestFullScreen();
-    } else if (iframe.webkitRequestFullscreen) {
-      iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) {
-      iframe.msRequestFullscreen();
-    } else {
-      alert('Fullscreen API is not supported by your browser.');
-    }
+    if (iframe.requestFullscreen) iframe.requestFullscreen();
+    else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
+    else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+    else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
+    else alert('Fullscreen not supported');
   });
-
-  document.addEventListener('fullscreenchange', () => {});
-  document.addEventListener('webkitfullscreenchange', () => {});
-  document.addEventListener('mozfullscreenchange', () => {});
-  document.addEventListener('MSFullscreenChange', () => {});
 </script>
 
 </body>
