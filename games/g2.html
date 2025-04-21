@@ -1,123 +1,114 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Waves</title>
-    <style>
-        body {
-            background-color: #006400; /* Dark Green */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center content horizontally */
-            justify-content: center; /* Center content vertically */
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px; /* Add padding to prevent content touching edges */
-            box-sizing: border-box;
-            position: relative; /* Needed for absolute positioning of the back button */
-        }
-        .iframe-container {
-            width: 75%;
-            position: relative; /* Needed for potential absolute positioning if required, but flex handles alignment here */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px; /* Add margin to push iframe down from back button */
-        }
-        iframe {
-            width: 100%; /* Take full width of the container */
-            height: 70vh; /* Adjust height as needed */
-            border: 2px solid #004d00; /* Slightly darker border */
-            display: block; /* Remove extra space below */
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #004d00; /* Darker green for button */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            text-decoration: none; /* Remove underline if wrapped in <a> */
-            display: inline-block; /* Proper button display */
-        }
-        button:hover {
-            background-color: #003300; /* Even darker on hover */
-        }
-        #fullscreenButton {
-             margin-top: 15px; /* Space between iframe and button */
-        }
-        #backButtonContainer {
-            position: absolute; /* Position relative to body */
-            top: 20px; /* Adjust spacing from top */
-            left: 20px; /* Adjust spacing from left */
-            z-index: 10; /* Ensure it's above other content if needed */
-        }
-        #backButtonContainer a {
-            text-decoration: none; /* Remove underline from link */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Waves</title>
+  <link rel="stylesheet" href="../resource/style.css" />
+  <style>
+    /* Additional styling specific to g1.html */
+    body {
+      background-color: #121212; /* Dark background from style.css */
+      color: #e0e0e0; /* Lighter text color for contrast */
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
 
-    </style>
+    h1 {
+      color: #00bfff; /* Neon blue text color */
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .iframe-container {
+      width: 80%;
+      max-width: 900px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #00bfff; /* Neon border color */
+      box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3); /* Soft glow effect */
+    }
+
+    iframe {
+      width: 100%;
+      height: 70vh;
+      border: none;
+      display: block;
+    }
+
+    #fullscreenButton {
+      padding: 12px 30px;
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    #fullscreenButton:hover {
+      background-color: #009acd; /* Slightly darker blue */
+    }
+
+    #backButtonContainer {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    #backButtonContainer a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #00bfff;
+      background-color: transparent;
+      padding: 10px;
+      border: 2px solid #00bfff;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    #backButtonContainer a:hover {
+      background-color: #00bfff;
+      color: black;
+    }
+  </style>
 </head>
 <body>
 
-<a id="homeLink">
-    <button id="backButton">Back</button>
-</a>
+<!-- Back Button -->
+<div id="backButtonContainer">
+  <a href="../index.html">Back</a>
+</div>
 
-<script>
-    const base = location.hostname === "d-445.github.io" ? "/Play-Games" : "";
-    document.getElementById("homeLink").href = `${base}/index.html`;
-</script>
-
+<h1>Geometry Dash Lite</h1>
 
 <div class="iframe-container">
-    <iframe
-        id="contentFrame"
-        src="https://www.crazygames.com/embed/space-waves"
-        title="Content Frame"
-        allowfullscreen>
-    </iframe>
-    <button id="fullscreenButton">Fullscreen</button>
+  <iframe src="https://www.crazygames.com/embed/space-waves" allowfullscreen title="Geometry Dash Lite"></iframe>
+  <button id="fullscreenButton">Fullscreen</button>
 </div>
 
 <script>
-    const iframe = document.getElementById('contentFrame');
-    const fullscreenButton = document.getElementById('fullscreenButton');
-    // No JS needed for the back button as it's a simple link
+  const iframe = document.querySelector('iframe');
+  const fullscreenButton = document.getElementById('fullscreenButton');
 
-    fullscreenButton.addEventListener('click', () => {
-        // Check if fullscreen is supported and request it
-        if (iframe.requestFullscreen) {
-            iframe.requestFullscreen()
-                .catch(err => console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`));
-        } else if (iframe.mozRequestFullScreen) { // Firefox
-            iframe.mozRequestFullScreen();
-        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari & Opera
-            iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) { // IE/Edge
-            iframe.msRequestFullscreen();
-        } else {
-            alert('Fullscreen API is not supported by your browser.');
-        }
-    });
-
-    // Optional: Listen for fullscreen changes to update button text or state
-    document.addEventListener('fullscreenchange', () => {
-        if (!document.fullscreenElement) {
-            // console.log('Exited fullscreen');
-            // You could potentially change the button text back here if needed
-        } else {
-            // console.log('Entered fullscreen');
-        }
-    });
-    // Add vendor-prefixed versions for older browsers if necessary
-    document.addEventListener('webkitfullscreenchange', () => { /* handle */ });
-    document.addEventListener('mozfullscreenchange', () => { /* handle */ });
-    document.addEventListener('MSFullscreenChange', () => { /* handle */ });
-
+  fullscreenButton.addEventListener('click', () => {
+    if (iframe.requestFullscreen) iframe.requestFullscreen();
+    else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
+    else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+    else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
+    else alert('Fullscreen not supported');
+  });
 </script>
 
 </body>
