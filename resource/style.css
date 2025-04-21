@@ -96,3 +96,6 @@ body {
 #fullscreenButton {
   margin-top: 20px;
 }
+html {
+  zoom: 3; /* Zoom in the whole page */
+}
