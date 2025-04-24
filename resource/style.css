@@ -92,9 +92,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: scale(0.5);
+  transform: scale(1.2);
   transform-origin: top left;
-  width: 200%; /* Inverse of scale to preserve layout space */
+  width: 120%; /* Inverse of scale to preserve layout space */
 }
 
 
